@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>70th Birthday Celebration | Reservations</title>
+  <meta name="description" content="RSVP / reservation page for a 70th birthday celebration." />
+
+  <style>
+    :root{
+      --royal:#1d4ed8; --pink:#ec4899; --ink:#0f172a; --muted:#475569; --soft:#f8fafc;
+      --card:#ffffff; --shadow:0 14px 34px rgba(2,6,23,.14); --radius:18px; --ring:rgba(29,78,216,.25);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--ink);
+      background:
+        radial-gradient(900px 420px at 10% -10%, rgba(236,72,153,.18), transparent 55%),
+        radial-gradient(900px 420px at 95% 0%, rgba(29,78,216,.18), transparent 60%),
+        linear-gradient(180deg, #fff, var(--soft));
+    }
+    .wrap{max-width:1100px;margin:0 auto;padding:26px 18px 64px}
+    header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding:10px 0}
+    .badge{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 14px;border-radius:999px;
+      background:linear-gradient(90deg, rgba(29,78,216,.12), rgba(236,72,153,.12));
+      border:1px solid rgba(2,6,23,.06);
+      font-weight:900;
+    }
+    .dot{width:10px;height:10px;border-radius:999px;background:var(--pink);box-shadow:0 0 0 6px rgba(236,72,153,.15)}
+    .small{font-size:12px;color:var(--muted)}
+    .hero{margin-top:14px;display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+    @media (max-width: 920px){ .hero{grid-template-columns:1fr} }
+    .card{
+      background:var(--card);
+      border:1px solid rgba(2,6,23,.06);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .pad{padding:22px}
+    h1{margin:0;font-size:clamp(28px, 4vw, 44px);line-height:1.06;letter-spacing:-.02em}
+    .subtitle{margin:10px 0 0;color:var(--muted);font-size:16px;line-height:1.6}
+    .photo{
+      width:100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 16px;
+      border:1px solid rgba(2,6,23,.08);
+      box-shadow: 0 10px 22px rgba(2,6,23,.10);
+      background:#fff;
+      margin-top:14px;
+    }
+    .scripture{
+      margin-top:14px;
+      padding:14px 16px;border-radius:14px;
+      border-left:4px solid var(--royal);
+      background:rgba(29,78,216,.06);
+      line-height:1.55;
+    }
+    .scripture strong{
+      display:block;margin-bottom:6px;
+      color:var(--royal);
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      font-size:12px;
+    }
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+    @media (max-width: 720px){ .grid{grid-template-columns:1fr} }
+    .info{padding:16px;border-radius:14px;border:1px solid rgba(2,6,23,.06);background:rgba(248,250,252,.75)}
+    .k{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.10em;margin-bottom:6px}
+    .v{font-weight:900;font-size:16px}
+    .v small{font-weight:800;color:var(--muted)}
+    .divider{height:1px;background:rgba(2,6,23,.08);margin:18px 0}
+    form{display:grid;gap:12px;margin-top:10px}
+    label{font-size:13px;color:var(--muted);font-weight:900}
+    input, select, textarea{
+      width:100%;
+      padding:12px 12px;border-radius:12px;
+      border:1px solid rgba(2,6,23,.14);
+      background:#fff;font-size:15px;
+    }
+    textarea{min-height:96px;resize:vertical}
+    input:focus, select:focus, textarea:focus{outline:3px solid var(--ring);border-color:rgba(29,78,216,.35)}
+    .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media (max-width: 720px){ .row2{grid-template-columns:1fr} }
+    .btn{
+      cursor:pointer;
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 14px;border-radius:12px;border:0;
+      background:linear-gradient(90deg, var(--royal), var(--pink));
+      color:#fff;font-weight:900;
+      box-shadow:0 8px 18px rgba(2,6,23,.12);
+    }
+    .toast{
+      display:none;margin-top:10px;
+      padding:10px 12px;border-radius:12px;
+      background:rgba(34,197,94,.12);
+      border:1px solid rgba(34,197,94,.25);
+      color:#14532d;font-weight:900;
+    }
+    footer{margin-top:26px;color:var(--muted);font-size:12px;text-align:center}
+    a{color:inherit}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="badge"><span class="dot"></span> 70th Birthday Celebration Reservations</div>
+      <div class="small">Royal Blue • Pink • White</div>
+    </header>
+
+    <section class="hero">
+      <div class="card pad">
+        <h1>
+          You’re invited to celebrate
+          <span style="background:linear-gradient(90deg,var(--royal),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent;">
+            70 amazing years
+          </span>
+        </h1>
+
+        <p class="subtitle">
+          Please reserve your seat below. Your reservation will be saved automatically to our RSVP list.
+        </p>
+
+        <!-- Put your photo file in the same folder as index.html and name it celebrant.jpg -->
+        <img class="photo" src="celebrant.jpg" alt="Celebrant photo" />
+
+        <div class="scripture">
+          <strong>Scripture</strong>
+          “Even to your old age and gray hairs I am He, I am He who will sustain you.
+          I have made you and I will carry you; I will sustain you and I will rescue you.”
+          <br><span class="small"><b>Isaiah 46:4</b></span>
+        </div>
+
+        <div class="grid">
+          <div class="info">
+            <div class="k">Date</div>
+            <div class="v">Saturday, June 6</div>
+          </div>
+          <div class="info">
+            <div class="k">Time</div>
+            <div class="v">5:00 PM <small>cocktails & photos</small><br>6:00 PM <small>event begins</small></div>
+          </div>
+          <div class="info">
+            <div class="k">Venue</div>
+            <div class="v">150 Frank Dimino Way<br>Rochester, NY 14624</div>
+          </div>
+          <div class="info">
+            <div class="k">Dress Code</div>
+            <div class="v">African Outfit & Formal</div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+        <div class="small">Questions? Email: <b>emma.gwus@gmail.com</b></div>
+      </div>
+
+      <div class="card pad" id="reserve">
+        <h2 style="margin:0 0 6px;font-size:22px">Reservation Form</h2>
+        <div class="small">Fields marked * are required.</div>
+
+        <!-- This posts directly to your Apps Script Web App (writes to Google Sheet) -->
+        <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+        <form id="rsvpForm"
+              action="https://script.google.com/macros/s/AKfycbwXVPPoo1TrHgUu_hx-9j43NDKmFeIIk4c-zqP8uCdl1N_97-LSGKLMoucb25Y9qQeR3Q/exec"
+              method="POST"
+              target="hidden_iframe">
+
+          <div class="row2">
+            <div>
+              <label>Full Name *</label>
+              <input name="name" type="text" placeholder="e.g., John Smith" required />
+            </div>
+            <div>
+              <label>Phone</label>
+              <input name="phone" type="text" placeholder="e.g., (214) 555-1234" />
+            </div>
+          </div>
+
+          <div class="row2">
+            <div>
+              <label>Email *</label>
+              <input name="email" type="email" placeholder="e.g., john@email.com" required />
+            </div>
+            <div>
+              <label>Number of Guests *</label>
+              <select name="guests" required>
+                <option value="" disabled selected>Select…</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row2">
+            <div>
+              <label>Attendance *</label>
+              <select name="attend" required>
+                <option value="" disabled selected>Select…</option>
+                <option value="Yes">Yes, I’ll be there</option>
+                <option value="No">No, I can’t make it</option>
+                <option value="Maybe">Maybe</option>
+              </select>
+            </div>
+            <div>
+              <label>Include photo on invite?</label>
+              <select name="photo">
+                <option value="" disabled selected>Select…</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label>Notes (optional)</label>
+            <textarea name="notes" placeholder="Dietary needs, message to celebrant, etc."></textarea>
+          </div>
+
+          <button class="btn" type="submit">Submit Reservation</button>
+
+          <div id="okToast" class="toast">Reservation submitted ✅ Check Google Sheet</div>
+        </form>
+
+        <div class="small" style="margin-top:10px">
+          RSVPs are saved to your Google Sheet tab named <b>Reservations</b>.
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="yr"></span> 70th Birthday Celebration • Built with love
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("yr").textContent = new Date().getFullYear();
+
+    // Show success message right after submit
+    document.getElementById("rsvpForm").addEventListener("submit", () => {
+      const toast = document.getElementById("okToast");
+      toast.style.display = "block";
+      setTimeout(() => toast.style.display = "none", 5000);
+      // Note: We cannot detect success in the hidden iframe reliably without extra work,
+      // but the sheet should update when the script receives the POST.
+    });
+  </script>
+</body>
+</html>
